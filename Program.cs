@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,5 +23,13 @@ namespace _2021_06_22_Fileupload
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        string path = Path.Combine(Directory.GetCurrentDirectory(), "UploadFolder", Path.GetFileName(DueDate.FileName));
+
+        using (FileStream stream = new FileStream(path, FileMode.Create))
+        {
+            file.CopyTo(stream);
+        }
+
     }
 }
