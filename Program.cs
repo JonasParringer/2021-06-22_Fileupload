@@ -24,12 +24,12 @@ namespace _2021_06_22_Fileupload
                     webBuilder.UseStartup<Startup>();
                 });
 
-        string path = Path.Combine(Directory.GetCurrentDirectory(), "UploadFolder", Path.GetFileName(DueDate.FileName));
+        //string path = Path.Combine(Directory.GetCurrentDirectory(), "UploadFolder", Path.GetFileName(DueDate.FileName));
 
-        using (FileStream stream = new FileStream(path, FileMode.Create))
-        {
-            file.CopyTo(stream);
-        }
+        //using (FileStream stream = new FileStream(path, FileMode.Create))
+        //{
+        //    file.CopyTo(stream);
+        //}
 
     }
 }
