@@ -40,8 +40,30 @@ namespace _2021_06_22_Fileupload.Controllers
         [HttpPost]
         public IActionResult UploadFile(IFormFile dieDatei)
         {
-            return View();
+            try
+            {
+                if (dieDatei.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/UploadFiles"), _FileName);
+                    file.SaveAs(_path);
+                    ViewBag.Messange = "File Uploaded Successfully";
+                    return View();
+                }
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View();
+            }
         }
+
+         //string path = Path.Combine(Directory.GetCurrentDirectory(), "UploadFolder", Path.GetFileName(DueDate.FileName));
+
+        //using (FileStream stream = new FileStream(path, FileMode.Create))
+        //{
+        //    file.CopyTo(stream);
+        //}
 
        
     }
