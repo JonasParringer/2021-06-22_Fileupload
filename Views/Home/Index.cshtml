@@ -6,3 +6,13 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@*@using (Html.BeginForm ("Index", "Home", FormMethod.Post, new {enctype = "multipart/form-data" }))
+            {
+
+            }*@
+
+<form asp-controller="Home" asp-action="Index" method="post" enctype="multipart/form-data">
+    <input type="file" name="dieDatei" />
+    <input type="submit" />
+</form>

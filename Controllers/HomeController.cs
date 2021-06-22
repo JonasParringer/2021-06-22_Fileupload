@@ -1,4 +1,5 @@
 ﻿using _2021_06_22_Fileupload.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -32,6 +33,12 @@ namespace _2021_06_22_Fileupload.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult UploadFile(IFormFile dieDatei)
+        {
+            return View();
         }
     }
 }
